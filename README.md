@@ -25,14 +25,19 @@ builder.get('pingpong-id', 'pingpong-token', 'sessionId', 'query')
 ```
 # Methods
 `get(id, token, sessionid, query)`
+
 Make a request to the pingpong server
 ## params
 id(tring): the unique string in the request url
+
 token(string): your pingpong builder tokrn, including `Basic `
+
 sessionid(string): a string to represent the user
+
 query(string): the message from the user
 ## result
 when the request succeeded: resolves with an array of responses
+
 when the request failed: rejects with an error message
 # Contributor
 [mswgen](https://github.com/mswgen)
