@@ -28,7 +28,7 @@ builder.get('pingpong-id', 'pingpong-token', 'sessionId', 'query')
 
 Make a request to the pingpong server
 ## params
-id(tring): the unique string in the request url
+id(string): the unique string in the request url
 
 token(string): your pingpong builder tokrn, including `Basic `
 
