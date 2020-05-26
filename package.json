@@ -1,0 +1,22 @@
+{
+    "name": "pingpong-builder",
+    "version": "1.0.0",
+    "description": "An easy way to use pingpong builder",
+    "keywords": [
+        "node",
+        "pingpong",
+        "pingpong_builder",
+        "builder",
+        "ai"
+    ],
+    "license": "MIT",
+    "author": "mswgen",
+    "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mswgen/pingpong.git"
+    },
+    "dependencies": {
+        "axios": "0.19.2"
+    }
+}
