@@ -25,20 +25,24 @@ module.exports = class {
                 toResolve.push(res[0].text);
                 if (!res[1]) return reslv(toResolve);
                 let msg2 = res[1];
-                if (msg2) {
+                if (msg2 && msg2.text) {
                     toResolve.push(msg2.text);
                 }
                 let img = res[1].image;
-                if (img) {
+                if (img && img.url) {
                     toResolve.push(img.url);
                 }
                 if (!res[2]) return reslv(toResolve);
                 let img2 = res[2].image;
-                if (img2) {
+                if (img2 && img2.url) {
                     toResolve.push(img2.url);
                 }
                 reslv(toResolve);
             }).catch(rej)
         });
+    }
+    resolve_id (url) {
+        if (!url) return 'URL excepted';
+        return url.split('').reverse().join('').split('/')[4].split('').reverse().join('');
     }
 }

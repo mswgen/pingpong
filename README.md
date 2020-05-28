@@ -13,9 +13,11 @@ const builder = new Pingpong();
 //https://builder.pingpong.us/api/builder/this_is_your_id/integration/v0.2/custom/session_id
 //this_id_your_id part is
 //your id
+//you can use resolve_id method to
+//exchange your URL to the id.
 //use sessionid to represent a user
 //query id the message
-builder.get('pingpong-id', 'pingpong-token', 'sessionId', 'query')
+builder.get(builder.resolve_id('pingpong_url'), 'pingpong-token', 'sessionId', 'query')
 //resolves with an array of responses
 //including gif image URLs
 .then(console.log)
@@ -39,6 +41,16 @@ query(string): the message from the user
 when the request succeeded: resolves with an array of responses
 
 when the request failed: rejects with an error message
+
+---
+
+`resolve_id(url)`
+
+Returns the pingpong id from the given url
+## params
+url(string): the pingpong url.
+## result
+returnes the id from the url.
 # Contributor
 [mswgen](https://github.com/mswgen)
 # Pingpong builder
