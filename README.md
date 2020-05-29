@@ -5,7 +5,7 @@ An easy way to use pingpong builder
 //import this module
 const Pingpong = require('pingpong-builder');
 //class constructor
-const builder = new Pingpong();
+const builder = new Pingpong.Ai();
 //get method
 //you can use this method to
 //make a pingpong request
