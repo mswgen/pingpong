@@ -17,7 +17,11 @@ const builder = new Pingpong.Ai();
 //exchange your URL to the id.
 //use sessionid to represent a user
 //query id the message
-builder.get(builder.resolve_id('pingpong_url'), 'pingpong-token', 'sessionId', 'query')
+builder.get('query', {
+    id: builder.resolve_id('pingpong_url'),
+    token: 'token',
+    sessionid: 'sessionid'
+})
 //resolves with an array of responses
 //including gif image URLs
 .then(console.log)
@@ -26,7 +30,7 @@ builder.get(builder.resolve_id('pingpong_url'), 'pingpong-token', 'sessionId', '
 .catch(console.error);
 ```
 # Methods
-`get(id, token, sessionid, query)`
+`get(query, { id: id, token: token, sessionid: sessionid })`
 
 Make a request to the pingpong server
 ## params
@@ -39,6 +43,20 @@ sessionid(string): a string to represent the user
 query(string): the message from the user
 ## result
 when the request succeeded: resolves with an array of responses
+Its type is like this:
+
+```js
+//text
+{
+    type: 'text',
+    content: 'content'
+}
+//image
+{
+    type: 'image',
+    content: 'image url'
+}
+```
 
 when the request failed: rejects with an error message
 

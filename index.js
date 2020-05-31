@@ -2,19 +2,20 @@ const axios = require('axios');
 module.exports = {
     Ai: class {
     constructor () {}
-    get (id, token, sessionid, query) {
+    get (query, option) {
         return new Promise ((reslv, rej) => {
-            if (!id) return rej('ID excepted');
-            if (!token) return rej('Token excepted');
-            if (!sessionid) return rej('SessionId excepted');
+            if (!option) return rej('Option parameter excepted');
+            if (!option.id) return rej('ID excepted');
+            if (!option.token) return rej('Token excepted');
+            if (!option.sessionid) return rej('SessionId excepted');
             if (!query) return rej('query excepted');
-            axios.post(`https://builder.pingpong.us/api/builder/${id}/integration/v0.2/custom/${sessionid}`, {
+            axios.post(`https://builder.pingpong.us/api/builder/${option.id}/integration/v0.2/custom/${option.sessionid}`, {
                 request: {
                     query: query
                 }
             }, {
                 headers: {
-                    Authorization: token,
+                    Authorization: option.token,
                     'Content-Type': 'application/json'
                 }
             }).then(response => {
@@ -23,20 +24,18 @@ module.exports = {
                     res = res.slice(1);
                 }
                 var toResolve = [];
-                toResolve.push(res[0].text);
-                if (!res[1]) return reslv(toResolve);
-                let msg2 = res[1];
-                if (msg2 && msg2.text) {
-                    toResolve.push(msg2.text);
-                }
-                let img = res[1].image;
-                if (img && img.url) {
-                    toResolve.push(img.url);
-                }
-                if (!res[2]) return reslv(toResolve);
-                let img2 = res[2].image;
-                if (img2 && img2.url) {
-                    toResolve.push(img2.url);
+                for (var x of res) {
+                    if (x.text) {
+                        toResolve.push({
+                            type: 'text',
+                            content: x.text
+                        });
+                    } else if (x.image && x.image.url) {
+                        toResolve.push({
+                            type: 'image',
+                            content: x.image.url
+                        });
+                    }
                 }
                 reslv(toResolve);
             }).catch(rej)
