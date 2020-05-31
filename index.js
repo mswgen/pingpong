@@ -1,5 +1,6 @@
 const axios = require('axios');
-module.exports = class {
+module.exports = {
+    Ai: class {
     constructor () {}
     get (id, token, sessionid, query) {
         return new Promise ((reslv, rej) => {
@@ -45,4 +46,5 @@ module.exports = class {
         if (!url) return 'URL excepted';
         return url.split('').reverse().join('').split('/')[4].split('').reverse().join('');
     }
+}
 }
