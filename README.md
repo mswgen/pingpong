@@ -1,4 +1,9 @@
 # pingpong-builder
+![npm](https://img.shields.io/npm/v/pingpong-builder)
+![npm](https://img.shields.io/npm/dt/pingpong-builder)
+![NPM](https://img.shields.io/npm/l/pingpong-builder)
+![npm bundle size](https://img.shields.io/bundlephobia/min/pingpong-builder)
+![GitHub issues](https://img.shields.io/github/issues/mswgen/pingpong)
 An easy way to use pingpong builder
 # Example
 ```js
