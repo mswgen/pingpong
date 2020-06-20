@@ -37,7 +37,10 @@ module.exports = {
                         });
                     }
                 }
-                reslv(toResolve);
+                reslv({
+                    contents: toResolve,
+                    raw: response.data
+                });
             }).catch(rej)
         });
     }

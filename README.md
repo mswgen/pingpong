@@ -52,15 +52,20 @@ when the request succeeded: resolves with an array of responses
 Its type is like this:
 
 ```js
-//text
 {
-    type: 'text',
-    content: 'content'
-}
-//image
-{
-    type: 'image',
-    content: 'image url'
+    contents: [
+        //text
+        {
+            type: 'text',
+            content: '안녕하세요'
+        },
+        //image
+        {
+            type: 'image',
+            content: 'https://media.tenor.com/...'
+        }
+    ],
+    raw: {...} // raw response data
 }
 ```
 
