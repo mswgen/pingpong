@@ -17,7 +17,7 @@
         "url": "https://github.com/mswgen/pingpong.git"
     },
     "dependencies": {
-        "axios": "0.19.2"
+        "axios": "0.21.1"
     },
     "types": "index.d.ts"
 }
